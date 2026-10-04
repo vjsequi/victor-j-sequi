@@ -1,0 +1,13 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import type { CollectionEntry } from 'astro:content';
+import { url, displayDate } from '../lib/site';
+const { notes } = Astro.props as { notes: CollectionEntry<'notes'>[] };
+---
+<div class="note-list">
+  {notes.map(note => <a class="note-row" href={url(`notes/${note.id}/`)}>
+    <div class="note-type">{note.data.category}</div>
+    <div><h3>{note.data.title}</h3><p>{note.data.summary}</p></div>
+    <div class="note-date"><time datetime={note.data.date.toISOString()}>{displayDate(note.data.date)}</time><ArrowUpRight size={20} aria-hidden="true" /></div>
+  </a>)}
+</div>

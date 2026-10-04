@@ -1,0 +1,23 @@
+---
+import { ArrowUpRight, BookOpen, Calculator, Route } from '@lucide/astro';
+import type { CollectionEntry } from 'astro:content';
+import { url } from '../lib/site';
+const { project } = Astro.props as { project: CollectionEntry<'projects'> };
+const { data, id } = project;
+const icons = { '01': BookOpen, '02': Calculator, '03': Route };
+const Icon = icons[data.number as keyof typeof icons];
+---
+<article class={`project-card project-${data.number}`}>
+  <a class="project-link" href={url(`work/${id}/`)}>
+    <div class="project-art" aria-hidden="true">
+      <div class="art-top"><Icon size={26} strokeWidth={1.4} /><span>{data.category}</span></div>
+      {data.number === '01' && <div class="learning-visual"><div class="visual-title">Pulpo<span>Oposiciones</span></div><div class="pipeline"><span>Source</span><span>Review</span><span>Learn</span></div><div class="art-foot">DOCUMENTS INTO LEARNING</div></div>}
+      {data.number === '02' && <div class="finance-visual"><div class="visual-title">NetWorth<span>AI</span></div><div class="ledger-lines"><span>Language interface</span><span>Deterministic calculations</span><span>Auditable changes</span></div></div>}
+      {data.number === '03' && <div class="transport-visual"><div class="visual-title">SATURN<span>py</span></div><div class="route-graphic"><i></i><i></i><i></i><i></i><i></i></div><div class="art-foot">TRANSPORT MODELLING / PYTHON</div></div>}
+    </div>
+    <div class="project-meta"><span class={`status status-${data.number}`}><i></i>{data.status}</span><span>{data.number}</span></div>
+    <h3>{data.title}<ArrowUpRight size={20} aria-hidden="true" /></h3>
+    <p>{data.summary}</p>
+    <ul class="tags" aria-label="Topics">{data.tags.map(tag => <li>{tag}</li>)}</ul>
+  </a>
+</article>

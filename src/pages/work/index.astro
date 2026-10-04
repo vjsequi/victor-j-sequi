@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Work" active="Work">
+  <section class="shell page-intro"><span class="eyebrow">Projects / Experiments / Outcomes</span><h1>Work in the world<span>.</span></h1><p>A selection of independent projects, from domain-specific Python tooling to AI-assisted products. Each one is a different way of putting ideas into practice.</p></section>
+  <section class="shell project-grid work-index" aria-label="Projects">{projects.map(project => <ProjectCard project={project} />)}</section>
+  <section class="shell professional-context"><span class="eyebrow">Beyond independent projects</span><h2>Data and technical leadership</h2><p>Alongside my own projects, my professional work spans reporting platforms, telecommunications analytics, and transport modelling. I focus on problem definition, data contracts, architecture, and the decisions that help teams deliver.</p></section>
+</Base>

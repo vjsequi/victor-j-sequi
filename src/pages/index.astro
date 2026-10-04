@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import { ArrowRight, ArrowUpRight } from '@lucide/astro';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import NoteList from '../components/NoteList.astro';
+import { url } from '../lib/site';
+const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order).slice(0, 3);
+---
+<Base>
+  <section class="intro shell">
+    <div class="intro-label"><span class="eyebrow">A personal body of work</span><span class="edition">BUILDING & LEARNING / 2026</span></div>
+    <div class="identity"><h1>Victor J. Sequi<span>.</span></h1><img src={url('images/victor-sequi.jpg')} width="112" height="112" alt="Portrait of Victor J. Sequi" fetchpriority="high" /></div>
+    <div class="intro-bottom"><div><h2>From complex problems<br />to useful systems.</h2><p>I'm a technical lead working across data, solution architecture, and applied AI. This is where I share what I build, the decisions behind it, and what I learn along the way.</p></div><a class="intro-aside" href={url('now/')}><span class="eyebrow"><i class="status-dot"></i> Currently exploring</span><strong>Better ways to build <br />with AI agents.</strong><span class="text-link">What I'm working on <ArrowRight size={16} aria-hidden="true" /></span></a></div>
+  </section>
+  <section class="work-section shell" aria-labelledby="selected-work">
+    <div class="section-heading"><div><span class="eyebrow">01 / In practice</span><h2 id="selected-work">Selected work</h2></div><a class="text-link" href={url('work/')}>All projects <ArrowUpRight size={17} aria-hidden="true" /></a></div>
+    <div class="project-grid">{projects.map(project => <ProjectCard project={project} />)}</div>
+  </section>
+  <section class="notes-section shell" aria-labelledby="field-notes">
+    <div class="section-heading"><div><span class="eyebrow">02 / Thinking out loud</span><h2 id="field-notes">Field notes</h2></div><a class="text-link" href={url('notes/')}>All notes <ArrowUpRight size={17} aria-hidden="true" /></a></div>
+    <NoteList notes={notes} />
+  </section>
+  <section class="about-band"><div class="shell about-band-inner"><span class="eyebrow">03 / The through-line</span><h2>Transport models.<br />Data products.<br /><em>Systems that earn trust.</em></h2><div><p>My path has taken me from civil engineering and mobility analytics to technical leadership and independent product development. The constant is an interest in how things work, and how to make them work better.</p><a class="text-link" href={url('about/')}>A little more about me <ArrowRight size={18} aria-hidden="true" /></a></div></div></section>
+</Base>

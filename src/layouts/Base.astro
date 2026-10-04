@@ -1,0 +1,48 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/newsreader';
+import '../styles/global.css';
+import { profile, url } from '../lib/site';
+
+interface Props { title?: string; description?: string; active?: string; noindex?: boolean; }
+const { title, description = profile.description, active = '', noindex = false } = Astro.props;
+const pageTitle = title ? `${title} | ${profile.name}` : `${profile.name} | Data, systems & applied AI`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const links = [{ label: 'Work', path: 'work/' }, { label: 'Notes', path: 'notes/' }, { label: 'Now', path: 'now/' }, { label: 'About', path: 'about/' }];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#fafbf8" />
+    <meta name="color-scheme" content="light" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(url('images/victor-sequi.jpg'), Astro.site)} />
+    <meta name="twitter:card" content="summary" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a href={url()} class="wordmark" aria-label="Victor J. Sequi, home">vs<span class="brand-dot">.</span></a>
+      <nav aria-label="Main navigation">
+        {links.map(link => <a href={url(link.path)} aria-current={active === link.label ? 'page' : undefined}>{link.label}</a>)}
+      </nav>
+      <a class="header-contact external-link" href={profile.linkedin} rel="me">LinkedIn <ArrowUpRight size={16} aria-hidden="true" /></a>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer shell">
+      <div><a class="footer-name" href={url()}>Victor J. Sequi</a><p>Work, ideas, and the space between.</p></div>
+      <div class="footer-meta"><a class="external-link" href={profile.linkedin} rel="me">Find me on LinkedIn <ArrowUpRight size={16} aria-hidden="true" /></a><span>&copy; {new Date().getUTCFullYear()} Victor J. Sequi</span></div>
+    </footer>
+  </body>
+</html>

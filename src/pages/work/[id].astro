@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ArrowLeft, ArrowRight } from '@lucide/astro';
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/site';
+export async function getStaticPaths() {
+  return (await getCollection('projects', ({ data }) => !data.draft)).map(project => ({ params: { id: project.id }, props: { project } }));
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+<Base title={project.data.title} description={project.data.summary} active="Work">
+  <article class="shell article">
+    <a class="back-link" href={url('work/')}><ArrowLeft size={16} aria-hidden="true" /> All work</a>
+    <header class="article-header"><span class="eyebrow">{project.data.category} / {project.data.status}</span><h1>{project.data.title}<span>.</span></h1><p class="article-deck">{project.data.summary}</p><ul class="tags">{project.data.tags.map(tag => <li>{tag}</li>)}</ul></header>
+    <div class="outcome"><span class="eyebrow">The result so far</span><p>{project.data.outcome}</p></div>
+    <div class="prose"><Content /></div>
+    <a class="text-link article-end" href={url('notes/')}>Related thinking in field notes <ArrowRight size={18} aria-hidden="true" /></a>
+  </article>
+</Base>
