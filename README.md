@@ -2,7 +2,7 @@
 
 A personal portfolio and work journal. Built with Astro, local fonts, Markdown content, and static GitHub Pages deployment.
 
-Public website: https://vjsequi.github.io/victor-j-sequi/
+Public website: https://victorjsequi.com/
 
 ## Local development
 
@@ -41,6 +41,8 @@ The initial copy distinguishes production work, prototypes, and historical proje
 3. Run the **Deploy to GitHub Pages** workflow, or push to `main`.
 
 The workflow reads the destination origin and base path from GitHub Pages. It works with both a project URL and a root/custom domain without hardcoding a GitHub username.
+
+The production custom domain is `victorjsequi.com`. Porkbun DNS uses an apex ALIAS and a `www` CNAME pointing to `vjsequi.github.io`. Keep the GitHub domain-verification TXT record in place. GitHub Pages manages the HTTPS certificate and redirects `www` to the primary domain. No `CNAME` file is needed for the Actions deployment.
 
 Pull requests run checks and build the site without publishing. Deployment uploads only `dist/`.
 
