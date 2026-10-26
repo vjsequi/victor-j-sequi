@@ -3,7 +3,7 @@ title: A place to make progress visible
 summary: Why I am starting this collection of projects and notes.
 date: 2026-10-04
 category: Working in public
-order: 3
+order: 6
 draft: false
 ---
 

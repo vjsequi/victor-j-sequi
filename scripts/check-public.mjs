@@ -16,7 +16,7 @@ const rules = [
 ];
 
 const siteHost = new URL(process.env.SITE_URL || 'http://localhost:4321').hostname;
-const allowedHosts = new Set(['www.linkedin.com', 'pulpoposiciones.com', siteHost]);
+const allowedHosts = new Set(['www.linkedin.com', 'pulpoposiciones.com', 'pypi.org', siteHost]);
 const textExtensions = new Set(['.astro', '.ts', '.js', '.mjs', '.md', '.html', '.css', '.json', '.xml', '.txt', '.svg']);
 const forbiddenExtensions = new Set(['.pdf', '.docx', '.csv', '.env', '.pem', '.key', '.map']);
 

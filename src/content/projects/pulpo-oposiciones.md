@@ -1,37 +1,49 @@
 ---
 title: Pulpo Oposiciones
-summary: An AI-assisted learning platform, from source documents to reviewed study material.
+summary: A live learning product, directed by me and implemented end-to-end by AI agents.
 category: Learning product
 status: In production
 number: "01"
-tags: [Applied AI, Product architecture, Evaluation]
+tags: [Product direction, Agent delivery, Operations]
 order: 1
-outcome: A production examination-preparation platform connecting content generation, review, and a subscription learning application.
+outcome: A live subscription learning product with a source-based content workflow, reviewed releases, and recorded production acceptance.
 draft: false
 ---
 
-## The problem
+## The business problem
 
-Preparing for an examination means turning a large body of source material into something a person can learn from and practise with. Generating questions is only one part of that problem. The material also needs to be reviewed and delivered through a usable product.
+Examination preparation involves a large body of source material. Pulpo turns that material into concepts, practice questions, explanations, and memory cards, delivered through a subscription learning application. The product problem includes content quality, navigation, access, and the learner's return visits.
 
-## What I contributed
+## My role
 
-I led the architecture and agent-assisted development of Pulpo Oposiciones. The work spans source-document ingestion, content generation and evaluation, and the application that delivers the learning material.
+I directed the project and reviewed the work. AI agents implemented it end-to-end, including the frontend, backend, cloud setup, deployment, and technical verification. My contribution was setting the requirements, choosing between alternatives, challenging behaviour, and reviewing the delivered result.
 
-The product brings together reviewed concepts, study cards, and multiple-choice questions. Its delivery stack includes Next.js, Fastify, Firebase, and Cloud Run.
+## Product decisions
 
-## A decision that shaped the system
+I noticed that a one-time introductory guide occupied a permanent dashboard destination. I asked for alternatives, selected a temporary welcome panel, and required a suitable mobile experience. The recurring study tools remain visible while onboarding can retire after completion.
 
-Content generation follows explicit generation, evaluation, and repair stages. Accepted outputs pass into the next stage, with review before publication.
+I then asked what would happen when new lessons were added. I approved a compact later-reading notice, preserving the difference between acknowledging an update and actually reading it. This gave the agents concrete state transitions to implement and check.
 
-This makes the path from source material to published content something that can be inspected. The quality of the product depends on that path as much as on the initial generation.
+## Engineering and delivery
 
-## The result
+The learner application uses Next.js, a private Fastify API, Firebase identity and Firestore, Cloud Run, and Stripe subscription handling. Firebase Hosting is the public entry point. Authentication, course entitlement, and publication are separate boundaries.
 
-Pulpo Oposiciones is in production, with a public course for ENAIRE examination preparation. It connects reviewed learning material with a subscription application, bringing the content pipeline and the learner experience into one product.
+Content preparation has a different lifecycle from serving learners: establish source scope, generate candidates, review them, check coverage, and export accepted material. Bounded corrections or additions retain their evidence. Publication to the live product is a separate decision.
+
+Changes progress through development, staging, and production with recorded checks. This makes the acceptance criteria part of delivery, including mobile behaviour and retained learner state.
+
+## Operating the product
+
+Hosted acceptance on 16 October exposed a session race: background renewal could recreate a session after logout. Agents diagnosed and corrected it, with independent agent review. The release record checks logout across current tabs, denial of private access while signed out, explicit login, and retained progress.
+
+A subsequent observation of about eleven minutes recorded no HTTP 5xx responses or error-level logs. That is a bounded release check, not an uptime guarantee or a measurement of customer adoption.
+
+## Results and learning
+
+Pulpo is in production with a public ENAIRE preparation course. The delivered result combines learning content, account access, practice, progress, and subscription delivery.
+
+I also directed a separate comparison of four content-workflow implementations across sixteen live trials using fictional documents. It exposed a tradeoff between completed outputs and execution efficiency. The [comparison note](../../notes/comparing-ai-workflows/) explains the results and their limits.
+
+The next product evidence I want is human assessment of content usefulness and the effort required to review it. Published content, automatic grades, and successful release checks do not establish learning gains, revenue, or time saved.
 
 [Visit the public Pulpo Oposiciones course](https://pulpoposiciones.com/oposiciones/enaire-controladores).
-
-## What I want to explain next
-
-How an individual piece of source material moves through generation and review, and which decisions still need human judgement.

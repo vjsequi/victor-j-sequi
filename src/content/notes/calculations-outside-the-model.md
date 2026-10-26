@@ -3,7 +3,7 @@ title: Keeping calculations outside the model
 summary: A design boundary from the NetWorthAI prototype.
 date: 2026-10-04
 category: Agent design
-order: 1
+order: 4
 draft: false
 ---
 

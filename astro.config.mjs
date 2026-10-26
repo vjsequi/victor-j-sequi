@@ -5,6 +5,7 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   output: 'static',
   trailingSlash: 'always',
+  redirects: { '/work/saturnpy/': '/work/transportpy/' },
   build: { format: 'directory' },
   devToolbar: { enabled: false },
 });

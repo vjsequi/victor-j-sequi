@@ -20,6 +20,7 @@ test('allows publication dates, software names, and the contact allowlist', () =
   assert.deepEqual(findViolations('Updated 2026-10-04. Python, PySpark, SQL. 2016 - 2021.'), []);
   assert.deepEqual(findViolations('<a href="https://www.linkedin.com/in/victorsequi/">LinkedIn</a>'), []);
   assert.deepEqual(findViolations('<a href="https://pulpoposiciones.com/oposiciones/enaire-controladores">Project</a>'), []);
+  assert.deepEqual(findViolations('<a href="https://pypi.org/project/TransportPy/">Published package</a>'), []);
 });
 
 test('blocks unreviewed outbound destinations and source maps', () => {

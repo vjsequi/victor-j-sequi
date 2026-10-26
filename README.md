@@ -34,6 +34,8 @@ New content defaults to unpublished. Set `draft: false` deliberately after revie
 
 The initial copy distinguishes production work, prototypes, and historical projects. No user counts, revenue, learning improvements, employer metrics, or quantified performance claims have been invented.
 
+The 26 October 2026 content review adds Pulpo delivery and operating evidence, the invoice-reconciliation and AI Product Delivery local prototypes, and three field notes. Pulpo's implementation and execution are explicitly attributed to agents under the owner's direction and review. Synthetic studies retain their denominators and limitations; no private experiment bundles, employer records, or operational logs are published. The historical package is TransportPy, with its PyPI release linked and the former SATURNpy route redirected.
+
 ## GitHub Pages
 
 1. Create the destination GitHub repository and push this repository's `main` branch.

@@ -5,14 +5,14 @@ import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import NoteList from '../components/NoteList.astro';
 import { url } from '../lib/site';
-const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order).slice(0, 3);
 const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order).slice(0, 3);
 ---
 <Base>
   <section class="intro shell">
     <div class="intro-label"><span class="eyebrow">A personal body of work</span><span class="edition">BUILDING & LEARNING / 2026</span></div>
     <div class="identity"><h1>Victor J. Sequi<span>.</span></h1><img src={url('images/victor-j-sequi-portrait.jpg')} width="112" height="112" alt="Portrait of Victor J. Sequi" fetchpriority="high" /></div>
-    <div class="intro-bottom"><div><h2>From complex problems<br />to useful systems.</h2><p>I'm a technical lead working across data, solution architecture, and applied AI. This is where I share what I build, the decisions behind it, and what I learn along the way.</p></div><a class="intro-aside" href={url('now/')}><span class="eyebrow"><i class="status-dot"></i> Currently exploring</span><strong>Better ways to build <br />with AI agents.</strong><span class="text-link">What I'm working on <ArrowRight size={16} aria-hidden="true" /></span></a></div>
+    <div class="intro-bottom"><div><h2>From complex problems<br />to useful systems.</h2><p>I'm a technical lead connecting product needs, data engineering, and applied AI. My work combines Python and SQL experience with directing and reviewing agent-delivered products. Here I share the decisions, delivered results, and lessons from that work.</p></div><a class="intro-aside" href={url('now/')}><span class="eyebrow"><i class="status-dot"></i> Currently exploring</span><strong>Useful outcomes.<br /> Evidence to match.</strong><span class="text-link">What I'm working on <ArrowRight size={16} aria-hidden="true" /></span></a></div>
   </section>
   <section class="work-section shell" aria-labelledby="selected-work">
     <div class="section-heading"><div><span class="eyebrow">01 / In practice</span><h2 id="selected-work">Selected work</h2></div><a class="text-link" href={url('work/')}>All projects <ArrowUpRight size={17} aria-hidden="true" /></a></div>

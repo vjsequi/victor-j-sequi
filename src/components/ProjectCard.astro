@@ -1,10 +1,10 @@
 ---
-import { ArrowUpRight, BookOpen, Calculator, Route } from '@lucide/astro';
+import { ArrowUpRight, BookOpen, Calculator, ReceiptText, Route, Workflow } from '@lucide/astro';
 import type { CollectionEntry } from 'astro:content';
 import { url } from '../lib/site';
 const { project } = Astro.props as { project: CollectionEntry<'projects'> };
 const { data, id } = project;
-const icons = { '01': BookOpen, '02': Calculator, '03': Route };
+const icons = { '01': BookOpen, '02': ReceiptText, '03': Workflow, '04': Calculator, '05': Route };
 const Icon = icons[data.number as keyof typeof icons];
 ---
 <article class={`project-card project-${data.number}`}>
@@ -12,8 +12,10 @@ const Icon = icons[data.number as keyof typeof icons];
     <div class="project-art" aria-hidden="true">
       <div class="art-top"><Icon size={26} strokeWidth={1.4} /><span>{data.category}</span></div>
       {data.number === '01' && <div class="learning-visual"><div class="visual-title">Pulpo<span>Oposiciones</span></div><div class="pipeline"><span>Source</span><span>Review</span><span>Learn</span></div><div class="art-foot">DOCUMENTS INTO LEARNING</div></div>}
-      {data.number === '02' && <div class="finance-visual"><div class="visual-title">NetWorth<span>AI</span></div><div class="ledger-lines"><span>Language interface</span><span>Deterministic calculations</span><span>Auditable changes</span></div></div>}
-      {data.number === '03' && <div class="transport-visual"><div class="visual-title">SATURN<span>py</span></div><div class="route-graphic"><i></i><i></i><i></i><i></i><i></i></div><div class="art-foot">TRANSPORT MODELLING / PYTHON</div></div>}
+      {data.number === '02' && <div class="workflow-visual"><div class="visual-title">Invoice<span>reconciliation</span></div><div class="ledger-lines"><span>Source evidence</span><span>Exact balances</span><span>Human approval</span></div></div>}
+      {data.number === '03' && <div class="workflow-visual"><div class="visual-title">AI Product<span>Delivery</span></div><div class="ledger-lines"><span>Saved requirements</span><span>Acceptance evidence</span><span>Visible next steps</span></div></div>}
+      {data.number === '04' && <div class="finance-visual"><div class="visual-title">NetWorth<span>AI</span></div><div class="ledger-lines"><span>Language interface</span><span>Deterministic calculations</span><span>Auditable changes</span></div></div>}
+      {data.number === '05' && <div class="transport-visual"><div class="visual-title">Transport<span>Py</span></div><div class="route-graphic"><i></i><i></i><i></i><i></i><i></i></div><div class="art-foot">TRANSPORT MODELLING / PYTHON</div></div>}
     </div>
     <div class="project-meta"><span class={`status status-${data.number}`}><i></i>{data.status}</span><span>{data.number}</span></div>
     <h3>{data.title}<ArrowUpRight size={20} aria-hidden="true" /></h3>

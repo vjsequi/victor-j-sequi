@@ -103,21 +103,25 @@
   .project-link:hover .project-art { transform: translateY(-4px); }
   .project-link:hover h3 { color: var(--green); }
   .project-01 .project-art { background: #dcebbe; color: #293f2b; }
-  .project-02 .project-art { background: #e3e9f5; color: #344e7b; }
-  .project-03 .project-art { background: #ebe5de; color: #5a493b; }
+  .project-02 .project-art { background: #deebee; color: #30545d; }
+  .project-03 .project-art { background: #f3e2e6; color: #704450; }
+  .project-04 .project-art { background: #e3e9f5; color: #344e7b; }
+  .project-05 .project-art { background: #ebe5de; color: #5a493b; }
   .art-top { display: flex; justify-content: space-between; align-items: center; }
   .art-top > span { font-size: 9px; text-transform: uppercase; font-weight: 650; }
   .visual-title { font-size: 28px; line-height: 1.1; font-weight: 650; margin-bottom: 18px; }
   .visual-title > span { font-family: var(--serif); font-style: italic; font-weight: 500; }
   .learning-visual .visual-title { display: flex; flex-direction: column; gap: 2px; }
   .learning-visual .visual-title span { font-size: 24px; }
+  .workflow-visual .visual-title { display: flex; flex-direction: column; gap: 4px; }
+  .workflow-visual .visual-title span { font-size: 26px; }
   .pipeline { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
   .pipeline span { font-size: 9px; padding: 3px 8px; border: 1px solid #9dac8a; border-radius: 2px; }
   .pipeline span + span::before { content: ''; }
   .art-foot { font-size: 8px; opacity: .8; font-weight: 600; }
   .finance-visual .visual-title { font-size: 29px; }
   .ledger-lines { font-size: 9px; display: flex; flex-direction: column; gap: 5px; }
-  .ledger-lines span { border-top: 1px solid #bbc6db; padding-top: 4px; display: flex; justify-content: space-between; }
+  .ledger-lines span { border-top: 1px solid currentColor; padding-top: 4px; display: flex; justify-content: space-between; }
   .ledger-lines span::after { content: '+'; }
   .route-graphic { display: flex; height: 41px; align-items: center; margin-bottom: 16px; position: relative; justify-content: space-between; }
   .route-graphic::before { content: ''; position: absolute; height: 2px; background: #a79684; left: 0; right: 0; }
@@ -126,8 +130,10 @@
   .project-meta { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: 18px; margin-bottom: 12px; }
   .status { display: flex; align-items: center; gap: 7px; }
   .status i { width: 5px; height: 5px; border-radius: 50%; background: #527a3f; }
-  .status-02 i { background: #5878aa; }
-  .status-03 i { background: #927151; }
+  .status-02 i { background: #4b7a86; }
+  .status-03 i { background: #a45e73; }
+  .status-04 i { background: #5878aa; }
+  .status-05 i { background: #927151; }
   .project-card h3 { display: flex; justify-content: space-between; gap: 8px; font-size: 20px; font-weight: 650; margin-bottom: 13px; }
   .project-card > a > p { font-size: 13px; color: var(--muted); line-height: 1.85; min-height: 73px; }
   .tags { display: flex; gap: 7px 12px; flex-wrap: wrap; list-style: none; margin-top: 16px; }

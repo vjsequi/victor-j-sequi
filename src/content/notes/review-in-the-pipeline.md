@@ -3,7 +3,7 @@ title: Review belongs in the pipeline
 summary: What a learning product asks of AI-generated content.
 date: 2026-10-04
 category: Building products
-order: 2
+order: 5
 draft: false
 ---
 
