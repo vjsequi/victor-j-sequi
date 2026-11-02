@@ -1,7 +1,9 @@
 export const profile = {
   name: 'Victor J. Sequi',
+  headline: 'Product Technical Lead \u00b7 AI & Data',
+  tagline: 'Connecting business needs, product decisions, and engineering to deliver useful systems.',
   linkedin: 'https://www.linkedin.com/in/victorsequi/',
-  description: 'Technical leadership, data systems, and applied AI. Projects and field notes by Victor J. Sequi.',
+  description: 'Product Technical Lead across AI and data. Connecting business needs, product decisions, and engineering to deliver useful systems.',
 };
 
 export function url(path = '') {
